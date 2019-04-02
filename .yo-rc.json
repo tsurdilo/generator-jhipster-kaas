@@ -1,0 +1,10 @@
+{
+  "generator-jhipster-module": {
+    "promptValues": {
+      "githubName": "tsurdilo",
+      "authorName": "Tihomir Surdilovic",
+      "authorEmail": "tsurdilovic@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}
