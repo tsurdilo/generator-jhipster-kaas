@@ -1,7 +1,5 @@
 # generator-jhipster-kaas
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-
 > JHipster module, jhipster KaaS generator
 
 # Introduction
@@ -46,13 +44,14 @@ npm update -g generator-jhipster-kaas
 
 # Usage
 
+After intsalling the module you can run it with
+
+```bash
+yo jhipster-kaas
+```
+
+and follow the instructions to generate your application
+
 # License
 
 Apache-2.0 © [Tihomir Surdilovic]()
-
-[npm-image]: https://img.shields.io/npm/v/generator-jhipster-kaas.svg
-[npm-url]: https://npmjs.org/package/generator-jhipster-kaas
-[travis-image]: https://travis-ci.org/tsurdilo/generator-jhipster-kaas.svg?branch=master
-[travis-url]: https://travis-ci.org/tsurdilo/generator-jhipster-kaas
-[daviddm-image]: https://david-dm.org/tsurdilo/generator-jhipster-kaas.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/tsurdilo/generator-jhipster-kaas
