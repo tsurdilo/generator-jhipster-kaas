@@ -33,8 +33,8 @@ module.exports = class extends BaseGenerator {
         const defaultAppDetails = {
             apptype: 'quarkus',
             groupid: 'com.company',
-            artifactid: 'kaasapp',
-            version: '1.0.0',
+            artifactid: 'sample-kaas',
+            version: '1.0-SNAPSHOT',
             quarkusversion: '0.11.0',
             kaasversion: '8.0.0-SNAPSHOT',
             swaggerversion: '1.5.9',

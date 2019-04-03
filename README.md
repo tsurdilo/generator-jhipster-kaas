@@ -1,10 +1,7 @@
 # generator-jhipster-kaas
 
-> JHipster module, jhipster KaaS generator
-
-# Introduction
-
-This is a [JHipster](http://jhipster.github.io/) module, that is meant to be used in a JHipster application.
+This is a JHipster KaaS (KJar as a Service) generator module.
+It allows users to quickly generate Quarkus or SpringBoot based KaaS apps.
 
 # Prerequisites
 
@@ -50,7 +47,15 @@ After intsalling the module you can run it with
 yo jhipster-kaas
 ```
 
-and follow the instructions to generate your application
+and answer the set of configuration questions to generate your app.
+
+You can also use the "quick" option to use all default values for your
+app. In this case you will not be presented with set of configuration questions.
+The default app type is Quarkus.
+
+```bash
+yo jhipster-kaas --quick
+```
 
 # License
 
