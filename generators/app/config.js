@@ -86,7 +86,28 @@ module.exports = {
                 }
                 return 'Please enter swagger version.';
             }
+        },
+        {
+            name: 'genreactapp',
+            type: 'list',
+            message: 'Generate React Client UI:',
+            default: 'no',
+            choices: [{
+                    name: 'Yes',
+                    value: 'yes'
+                },
+                {
+                    name: 'No',
+                    value: 'no'
+                }
+            ],
+            validate: function (value) {
+                if (value.length) {
+                    return true;
+                } else {
+                    return 'Please enter valid React Client UI input..';
+                }
+            }
         }
-
     ]
 };

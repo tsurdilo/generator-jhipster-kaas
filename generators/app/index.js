@@ -38,7 +38,8 @@ module.exports = class extends BaseGenerator {
             quarkusversion: '0.11.0',
             kaasversion: '8.0.0-SNAPSHOT',
             swaggerversion: '1.5.9',
-            cxfversion: '3.2.6'
+            cxfversion: '3.2.6',
+            genreactapp: false
         };
 
         if (this.options.quick && this.options.quick === true) {
@@ -55,6 +56,7 @@ module.exports = class extends BaseGenerator {
                 this.appDetails.cxfversion = defaultAppDetails.cxfversion;
                 this.appDetails.kaasversion = this.answers.kaasversion;
                 this.appDetails.swaggerversion = this.answers.swaggerversion;
+                this.appDetails.genreactapp = this.answers.genreactapp;
 
                 this.appDetails.options = this.answers.options;
             });
@@ -81,6 +83,11 @@ module.exports = class extends BaseGenerator {
         this.template(
             `${constants.genconstants.QUARKUS_TEMPLATES_DIR}/src/main/resources/test-process.bpmn2.ejs`,
             `${this.appDetails.artifactid}/src/main/resources/test-process.bpmn2`
+        );
+
+        this.template(
+            `${constants.genconstants.QUARKUS_TEMPLATES_DIR}/src/main/java/CorsFilter.java.ejs`,
+            `${this.appDetails.artifactid}/src/main/java/CorsFilter.java`
         );
     }
 
@@ -114,6 +121,68 @@ module.exports = class extends BaseGenerator {
             `${constants.genconstants.SPRINGBOOT_TEMPLATES_DIR}/src/main/java/Application.java.ejs`,
             `${this.appDetails.artifactid}/src/main/java/Application.java`
         );
+
+        this.template(
+            `${constants.genconstants.SPRINGBOOT_TEMPLATES_DIR}/src/main/java/CorsConfig.java.ejs`,
+            `${this.appDetails.artifactid}/src/main/java/CorsConfig.java`
+        );
+    }
+
+    _writingreactuiclient() {
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/package.json.ejs`,
+            `${this.appDetails.artifactid}-client/package.json`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/.gitignore`,
+            `${this.appDetails.artifactid}-client/.gitignore`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/src/App.css`,
+            `${this.appDetails.artifactid}-client/src/App.css`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/src/App.js.ejs`,
+            `${this.appDetails.artifactid}-client/src/App.js`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/src/index.js`,
+            `${this.appDetails.artifactid}-client/src/index.js`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/src/index.css`,
+            `${this.appDetails.artifactid}-client/src/index.css`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/src/orgconfig.json`,
+            `${this.appDetails.artifactid}-client/src/orgconfig.json`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/src/serviceWorker.js`,
+            `${this.appDetails.artifactid}-client/src/serviceWorker.js`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/src/index.js`,
+            `${this.appDetails.artifactid}-client/src/index.js`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/public/favicon.ico`,
+            `${this.appDetails.artifactid}-client/public/favicon.ico`
+        );
+
+        this.template(
+            `${constants.genconstants.REACT_TEMPLATE_DIR}/public/index.html`,
+            `${this.appDetails.artifactid}-client/public/index.html`
+        );
     }
 
     writing() {
@@ -121,6 +190,10 @@ module.exports = class extends BaseGenerator {
             this._writingquarkus();
         } else {
             this._writingspringboot();
+        }
+
+        if (this.appDetails.genreactapp === 'yes') {
+            this._writingreactuiclient();
         }
     }
 
